@@ -8,7 +8,7 @@ app.set("views", path.join(__dirname, "views"))
 app.use(express.static(path.join(__dirname,"public")))
 
 app.get("/", (req,res) => {
- return res.send("Ola mundo")
+ return res.render("home")
 })
 
 app.listen(port,(err) => {
