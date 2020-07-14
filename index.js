@@ -11,6 +11,10 @@ app.get("/", (req,res) => {
  return res.render("home")
 })
 
+app.get("/cotacao", (req,res) => {
+  return res.render("cotacao")
+})
+
 app.use((req,res,next) => {
   return res.render("error")
 })
