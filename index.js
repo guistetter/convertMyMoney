@@ -11,6 +11,10 @@ app.get("/", (req,res) => {
  return res.render("home")
 })
 
+app.use((req,res,next) => {
+  return res.render("error")
+})
+
 app.listen(port,(err) => {
   if(err){
     console.log("algo deu errado")
