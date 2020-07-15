@@ -37,3 +37,8 @@ footer{
   display: flex;
   flex-direction: column;
 }
+.result{
+  padding: 10px;
+  border: 1px solid #d8d8d8;
+  background: #fdfdfd
+}

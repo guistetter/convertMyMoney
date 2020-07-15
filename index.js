@@ -3,6 +3,8 @@ const app = express()
 const path = require("path")
 const port = process.env.PORT || 3000
 
+const convert = require('./lib/convert')
+
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
 app.use(express.static(path.join(__dirname,"public")))
@@ -12,7 +14,21 @@ app.get("/", (req,res) => {
 })
 
 app.get("/cotacao", (req,res) => {
-  return res.render("cotacao")
+  //console.log(req.query)
+  const { cotacao, quantidade } = req.query 
+  if(cotacao && quantidade){
+    const conversao = convert.convert(cotacao, quantidade)
+    res.render("cotacao",{
+      error: false,
+      cotacao: convert.toMoney(cotacao),
+      quantidade: convert.toMoney(quantidade),
+      conversao: convert.toMoney(conversao)
+    })
+  } else {
+    res.render("cotacao",{
+      error: "valor invalido"
+    })
+  }
 })
 
 app.use((req,res,next) => {
