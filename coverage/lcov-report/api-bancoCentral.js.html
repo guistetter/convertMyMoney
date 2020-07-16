@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.37% </span>
+                <span class="strong">63.16% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/19</span>
+                <span class='fraction'>12/19</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">43.75% </span>
+                <span class="strong">56.25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/16</span>
+                <span class='fraction'>9/16</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -87,7 +87,9 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -95,8 +97,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -114,19 +116,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const axios = require("axios")
 &nbsp;
-const getUrl = <span class="fstat-no" title="function not covered" >da</span>ta =&gt; <span class="cstat-no" title="statement not covered" >`https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao=%27${data}%27&amp;$top=100&amp;$format=json&amp;$select=cotacaoCompra,cotacaoVenda,dataHoraCotacao`</span>
+const getUrl = data =&gt; `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao=%27${data}%27&amp;$top=100&amp;$format=json&amp;$select=cotacaoCompra,cotacaoVenda,dataHoraCotacao`
 &nbsp;
 const getCotacaoApi = url =&gt; axios.get(url)
 const extractCotacao = res =&gt; res.data.value[0].cotacaoVenda
 &nbsp;
-const getToday = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-  const today = <span class="cstat-no" title="statement not covered" >new Date()</span>
-<span class="cstat-no" title="statement not covered" >  return (today.getMonth()+1)+"-"+today.getDate()+"-"+today.getFullYear()</span>
+const getToday = () =&gt; {
+  const today = new Date()
+  return (today.getMonth()+1)+"-"+today.getDate()+"-"+today.getFullYear()
   //console.log(today.getDate(), today.getFullYear(), today.getMonth())
 }
 &nbsp;
@@ -146,7 +150,9 @@ const getCotacao = <span class="fstat-no" title="function not covered" >as</span
 module.exports = {
   getCotacaoApi,
   getCotacao,
-  extractCotacao
+  extractCotacao,
+  getToday,
+  getUrl
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -154,7 +160,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Jul 16 2020 10:10:17 GMT-0300 (GMT-03:00)
+                at Thu Jul 16 2020 10:53:03 GMT-0300 (GMT-03:00)
             </div>
         </div>
         <script src="prettify.js"></script>

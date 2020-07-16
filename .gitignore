@@ -1,4 +1,10 @@
+coverage
 node_modules 
 package-lock.json
-
 fundamentos.txt
+coverage/clover.xml
+coverage/coverage-final.json
+coverage/lcov-report/api-bancoCentral.js.html
+coverage/lcov-report/convert.js.html
+coverage/lcov-report/index.html
+coverage/lcov.info
